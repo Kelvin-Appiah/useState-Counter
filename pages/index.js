@@ -1,44 +1,44 @@
-import styles from '../styles/Home.module.css';
 import { useState } from 'react';
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
-  const [number, setNumber] = useState(0);
-
-  const Subtract = () => {
-    setNumber(number - 1);
-  };
+  const [integer, setInteger] = useState(0);
 
   const Add = () => {
     setTimeout(() => {
-      setNumber((prevNum) => {
-        return prevNum + 1;
+      setInteger((prevInt) => {
+        return prevInt + 1;
       });
     }, 2000);
+  };
+
+  const Subtract = () => {
+    setInteger(integer - 1);
   };
 
   return (
     <section className={styles.main}>
       <h1 style={{ fontSize: '2.5rem' }}>useState Counter</h1>
       <div className={styles.number}>
-        <span>{number}</span>
+        <span>{integer}</span>
       </div>
       <div className={styles.Thebuttons}>
         <button
-          className={`${styles.Abutton} ${styles.redButton}`}
+          className={`${styles.button} ${styles.subtractButton}`}
           onClick={Subtract}
         >
           - Subtract
         </button>
         <button
-          className={`${styles.Abutton} ${styles.whiteButton}`}
+          className={`${styles.button} ${styles.resetButton}`}
           onClick={() => {
-            setNumber(0);
+            setInteger(0);
           }}
         >
           Reset
         </button>
         <button
-          className={`${styles.Abutton} ${styles.blueButton}`}
+          className={`${styles.button} ${styles.addButton}`}
           onClick={Add}
         >
           + Add
